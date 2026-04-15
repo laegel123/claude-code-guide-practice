@@ -22,3 +22,10 @@ jobs:
         uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          direct_prompt: |
+            Please review this pull request. Check for:
+            - Code correctness and logic errors
+            - Test coverage and quality
+            - Code style and best practices
+            - Documentation accuracy
+            Provide constructive feedback as inline comments.
