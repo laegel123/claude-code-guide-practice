@@ -34,3 +34,8 @@ def test_divide_negative() -> None:
 def test_divide_by_zero() -> None:
     with pytest.raises(ValueError, match="division by zero"):
         divide(1, 0)
+
+
+def test_divide_by_zero_float() -> None:
+    with pytest.raises(ValueError, match="division by zero"):
+        divide(1.0, 0)
