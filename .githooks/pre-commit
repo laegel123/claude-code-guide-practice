@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="$(git rev-parse --show-toplevel)"
+PYTHON="$ROOT/.venv/bin/python"
+
+cd "$ROOT"
+
+echo ">>> ruff check..."
+"$ROOT/.venv/bin/ruff" check .
+echo ""
+
+echo ">>> mypy..."
+"$PYTHON" -m mypy .
+echo ""
+
+echo ">>> pytest..."
+"$PYTHON" -m pytest -v
+echo ""
+
+echo "All checks passed. Proceeding with commit."
